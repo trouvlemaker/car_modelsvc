@@ -1,0 +1,3 @@
+
+class AosModelServiceError(Exception):
+    pass

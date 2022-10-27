@@ -1,0 +1,41 @@
+{
+    "MODE_MASK": false,
+    "MODE_FPN": true,
+    "DATA": {
+        "CLASS_NAMES": [
+            "scratch", "joint", "dent", "dent_press", "complex_damage", 
+            "broken", "punch", "removed"
+        ], 
+        "BASEDIR": "damage_bbox",
+        "TRAIN": ["train"],
+        "VAL": ["eval"],
+        "NUM_CATEGORY": 8,
+        "NUM_WORKERS": 40
+    },
+    "BACKBONE": {
+        "WEIGHTS": "./ImageNet-R50-GroupNorm32-AlignPadding.npz",
+        "FREEZE_AT": 0,
+        "NORM": "GN"
+    },
+    "FPN": {
+        "CASCADE": true,
+        "NORM": "GN",
+        "FRCNN_HEAD_FUNC": "fastrcnn_4conv1fc_gn_head",
+        "MRCNN_HEAD_FUNC": "maskrcnn_up4conv_gn_head"
+    },
+    "RPN": {
+        "ANCHOR_RATIOS": [0.284, 1.0, 3.519]
+    },
+    "TRAIN": {
+        "BASE_LR": 0.001,
+        "STEPS_PER_EPOCH": 3125,
+        "EVAL_PERIOD": 5,
+        "STARTING_EPOCH": 273,
+        "LR_SCHEDULE": [120000, 160000, 180000]
+    },
+    "TEST": {
+        "RESULT_SCORE_THRESH": 0.01,
+        "FRCNN_NMS_THRESH": 0.3,
+        "RESULT_SCORE_THRESH_VIS": 0.4
+    }
+}

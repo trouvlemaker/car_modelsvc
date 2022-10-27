@@ -1,0 +1,18 @@
+# 케플릭스 app config
+MODE: test
+MODEL_BATCH: true
+IMAGE_BASE_PATH: ./input/images
+DAMAGE_IMAGE_PATH: ./output/damage_image  
+PART_IMAGE_PATH: ./output/part_image  
+PART_DAMAGE_IMAGE_PATH: ./output/part_damage_image         
+JSON_PATH: ./output/                                                                                                                                                                               
+GRPC_MAX_SEND_MESSAGE_LEN: -1                                                                                                                                                                                       
+GRPC_MAX_RECEIVE_MESSAGE_LEN: -1     
+PARTS_SVC: twincar-part-svc 
+PARTS_MODEL: twincar-part-kaflix
+DAMAGE_SVC: twincar-damage-svc
+DAMAGE_MODEL: twincar-damage-model
+FILTER_SVC: twincar-filter-3class-svc
+FILTER_MODEL: twincar-filter-model-3class
+FILTER_MODEL_VERSION: "2"                                                                                                       
+TEST_MODE: test
